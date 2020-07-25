@@ -21,10 +21,8 @@
     "prettier": "^1.19.1",
     "standard-version": "^8.0.0"
   },
-  "keywords": "[verdaccio-]",
   "license": "MIT",
-  "repository": "alleshq/alles-auth",
-  "author": "Alles <>",
+  "repository": "https://github.com/alleshq/verdaccio-alles-auth",
   "scripts": {
     "build": "npm run build:types && npm run build:js",
     "build:js": "babel src/ --out-dir lib --extensions \".ts,.tsx\"",
