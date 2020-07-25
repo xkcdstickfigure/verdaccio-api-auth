@@ -1,2 +1,2 @@
-# verdaccio-alles-auth
-AllesIDs for Verdaccio
+# verdaccio-api-auth
+This plugin allows you to handle authentication externally with an api.
