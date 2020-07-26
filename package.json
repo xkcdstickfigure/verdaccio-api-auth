@@ -2,11 +2,7 @@
 	"name": "verdaccio-api-auth",
 	"version": "0.0.2",
 	"description": "Verdaccio auth via external api",
-	"main": "lib/index.js",
-	"types": "lib/index.d.ts",
-	"files": [
-		"lib/"
-	],
+	"main": "index.js",
 	"engines": {
 		"node": ">=10"
 	},
