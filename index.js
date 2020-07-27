@@ -4,19 +4,42 @@ const {getForbidden} = require("@verdaccio/commons-api");
 class AuthCustomPlugin {
 	constructor(config) {
 		this.url = config.url;
+		this.secret = config.secret;
 		return this;
 	}
 
 	authenticate(username, password, cb) {
 		axios
-			.post(`${this.url}/authenticate`, {username, password})
+			.post(
+				`${this.url}/authenticate`,
+				{
+					username,
+					password
+				},
+				{
+					headers: {
+						authorization: this.secret
+					}
+				}
+			)
 			.then(res => cb(null, res.data))
 			.catch(() => cb(null, false));
 	}
 
 	allow_access(user, pkg, cb) {
 		axios
-			.post(`${this.url}/allow_access`, {user, package: pkg})
+			.post(
+				`${this.url}/allow_access`,
+				{
+					user,
+					package: pkg
+				},
+				{
+					headers: {
+						authorization: this.secret
+					}
+				}
+			)
 			.then(res =>
 				res.data
 					? cb(null, true)
@@ -27,7 +50,18 @@ class AuthCustomPlugin {
 
 	allow_publish(user, pkg, cb) {
 		axios
-			.post(`${this.url}/allow_publish`, {user, package: pkg})
+			.post(
+				`${this.url}/allow_publish`,
+				{
+					user,
+					package: pkg
+				},
+				{
+					headers: {
+						authorization: this.secret
+					}
+				}
+			)
 			.then(res =>
 				res.data
 					? cb(null, true)
@@ -38,7 +72,18 @@ class AuthCustomPlugin {
 
 	allow_unpublish(user, pkg, cb) {
 		axios
-			.post(`${this.url}/allow_unpublish`, {user, package: pkg})
+			.post(
+				`${this.url}/allow_unpublish`,
+				{
+					user,
+					package: pkg
+				},
+				{
+					headers: {
+						authorization: this.secret
+					}
+				}
+			)
 			.then(res =>
 				res.data
 					? cb(null, true)
