@@ -22,14 +22,14 @@ class AuthCustomPlugin {
 
 	allow_publish(username, packageName, cb) {
 		axios
-			.get(`${this.url}/authenticate?user=${username}&package=${packageName}`)
+			.get(`${this.url}/allow_publish?user=${username}&package=${packageName}`)
 			.then(res => cb(null, res.data))
 			.catch(() => cb(null, false));
 	}
 
 	allow_unpublish(username, packageName, cb) {
 		axios
-			.get(`${this.url}/authenticate?user=${username}&package=${packageName}`)
+			.get(`${this.url}/allow_unpublish?user=${username}&package=${packageName}`)
 			.then(res => cb(null, res.data))
 			.catch(() => cb(null, false));
 	}
