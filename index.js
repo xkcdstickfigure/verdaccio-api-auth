@@ -13,23 +13,23 @@ class AuthCustomPlugin {
 			.catch(() => cb(null, false));
 	}
 
-	allow_access(username, packageName, cb) {
+	allow_access(user, pkg, cb) {
 		axios
-			.get(`${this.url}/allow_access?user=${username}&package=${packageName}`)
+			.post(`${this.url}/allow_access`, {user, package: pkg})
 			.then(res => cb(null, res.data))
 			.catch(() => cb(null, false));
 	}
 
-	allow_publish(username, packageName, cb) {
+	allow_publish(user, pkg, cb) {
 		axios
-			.get(`${this.url}/allow_publish?user=${username}&package=${packageName}`)
+			.post(`${this.url}/allow_publish`, {user, package: pkg})
 			.then(res => cb(null, res.data))
 			.catch(() => cb(null, false));
 	}
 
-	allow_unpublish(username, packageName, cb) {
+	allow_unpublish(user, pkg, cb) {
 		axios
-			.get(`${this.url}/allow_unpublish?user=${username}&package=${packageName}`)
+			.post(`${this.url}/allow_unpublish`, {user, package: pkg})
 			.then(res => cb(null, res.data))
 			.catch(() => cb(null, false));
 	}
