@@ -1,13 +1,15 @@
 # verdaccio-api-auth
 This plugin allows you to handle authentication externally with an api.
 
+I haven't used Verdaccio in a long time and I have no idea if this still works.
+
 ## Installation
 Install the plugin using `npm i verdaccio-api-auth`, then update your configuration:
 ```
 auth:
     api-auth:
-        url: https://anr.alles.cc/account/api
-        secret: supersecretstr1ng
+        url: https://yourserver.tld/api
+        secret: supersecretstring
 ```
 
 ## API
